@@ -78,6 +78,15 @@ function totalSales(products, lineItems){
     sum += sales[key];
   }
   return sum;
+
+  /*ALTERNATIVE SOLUTION USING OBJECT.KEYS INSTEAD OF FOR-IN LOOP:
+
+    return Object.keys(total).reduce(function(memo, key) {
+      memo += total[key];
+      return memo;
+    }, 0)
+
+  */
 }
 
 //return the product responsible for the most revenue
@@ -92,6 +101,19 @@ function topSellerByRevenue(products, lineItems){
     }
   }
   return topSellerID;
+
+  /* ALTERNATIVE:
+
+    var map = generateProductsMap(products);
+    var totals = salesByProduct(products, lineItems);
+    var productId = Object.keys(totals).reduce(function(memo, key) {
+      if(totals[key] > totals[memo]) {
+        memo = key;
+      }
+      return memo;
+    });
+    return map[productId];
+  */
 }
 
 console.log(`generates product map - should be
