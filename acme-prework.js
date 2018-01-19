@@ -102,7 +102,7 @@ function topSellerByRevenue(products, lineItems){
   }
   return topSellerID;
 
-  /* ALTERNATIVE:
+  /* ALTERNATIVE USING REDUCE:
 
     var map = generateProductsMap(products);
     var totals = salesByProduct(products, lineItems);
